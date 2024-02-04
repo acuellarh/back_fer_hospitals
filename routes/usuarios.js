@@ -7,10 +7,11 @@ const { validarCampos } = require('../middlewares/validar-campos');
 
 
 const { getUsuarios, crearUsuario } = require('../controllers/usuarios');
+const { validarJWT } = require('../middlewares/validar-jwt');
 
 const router = Router();
 
-router.get( '/', getUsuarios);
+router.get( '/', validarJWT ,getUsuarios);
 
 router.post( '/',
     [
